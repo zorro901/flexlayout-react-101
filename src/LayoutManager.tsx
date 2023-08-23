@@ -13,12 +13,19 @@ import { ComponentOption } from "./componentTypes";
 const Sample = ({ num }: { num: string }) => {
   const [count, setCount] = useState(0);
   console.log("render");
+  useEffect(() => {
+    setInterval(()=>{
+      setCount((p) => p + 1);
+    },1000)
+  }, []);
   return (
-    <>
+    <div style={{
+      background:'palegreen'
+    }}>
       <div>{num}</div>
       <div>{count}</div>
       <button onClick={() => setCount((p) => p + 1)}>up</button>
-    </>
+    </div>
   );
 };
 
